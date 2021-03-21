@@ -1,0 +1,59 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+
+<head>
+	<title>Taula de multiplicar amb jQuery - AJAX</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+	</script>
+	<script>
+		$(document).ready(function () {
+			$("select").change(function () {
+				valor = $("select").val();
+				let data = `value=${valor}&otroParam=hola`;
+				fetch('calcular_taula.php', {
+					method: 'POST',
+					headers: {
+					"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+					},
+					body: data
+				})
+				.then(function (response) {
+					if (response.ok) {
+						response.text().then(function (txt) {
+							$("#resultat").html(txt);
+						})
+					} else {
+						console.log(`Status: ${response.status} ${response.statusText}`);
+					}
+				})
+				.catch(function (error) {
+					console.log('Hubo un problema con la petición Fetch:' + error.message);
+				});
+			});
+		});
+	</script>
+	<meta http-equiv="content-type" content="text/html charset=utf-8" />
+</head>
+
+<body>
+	<h2>Selecciona una taula de multiplicar</h2>
+	<div id="taula">
+		<select name="taula">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+	</div>
+	<div id="resultat">
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+"title": "Pagines interessants",
+"link": "",
+"description": "Pàgines interessants de l'institut Carles Vallbona",
+"language": "cat",
+"items": [
+	{
+	"title": "Institut Carles Vallbona",
+	"link": "http://www.iescarlesvallbona.cat/",
+	"description": "Pàgina oficial de l'institut Carles Vallbona de Granollers"
+	},
+
+	{
+	"title": "Aula virtual",
+	"link": "http://moodle.iescarlesvallbona.cat/",
+	"description": "Aula  virtual de l'Institut Carles Vallbona"
+	}
+]
+
+}

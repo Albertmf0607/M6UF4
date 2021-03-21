@@ -1,0 +1,1 @@
+<?phpsleep(2);$valor = $_POST["value"];//echo $valor;for ($i = 1; $i <= 10; $i++) {    echo $valor. " * ".$i." = ".$valor*$i."<br />\n";}?>

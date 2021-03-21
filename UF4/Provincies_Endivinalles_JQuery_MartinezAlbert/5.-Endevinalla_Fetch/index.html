@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h2> Endevinalla</h2>
+		<p style="color:blue">
+			Sempre que et toco no em veus,
+			<br />
+			<span id="p1" style="visibility:visible">&nbsp;</span>
+			<input id="p1Boto" type="button" style="visibility:visible" value="Demanar primera pista"
+			onclick="demanarPista1();" />
+			<br />
+			<span id="p2" style="visibility:hidden" >&nbsp;</span>
+			<input id="p2Boto" type="button" style="visibility:hidden" value="Demanar segona pista"
+			onclick="demanarPista2();" />
+			<br />
+			<span id="p3" style="visibility:hidden" >&nbsp;</span>
+			<input id="p3Boto" type="button" style="visibility:hidden" value="Demanar tercera pista"
+			onclick="demanarPista3();" />
+			<br />
+		</p>
+		<p>
+			Escriu la solució
+			<input type="text" id="solucio" value=""/>
+			<input type="button" value="Comprovar" onclick="comprovarSolucio();" />
+			<br />
+			<span id="laSolucioEs"></span>
+		</p>
+
+	</body>
+
+</html>

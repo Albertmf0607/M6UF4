@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+</head>
+
+<body>
+<h2>Create Object from JSON String</h2>
+<p>
+First Name: <span id="fname"></span><br /> 
+Last Name: <span id="lname"></span><br /> 
+</p> 
+<script type="text/javascript">
+//var txt = '{"employees":[' +
+var txt = '[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]';
+
+//var obj = eval ("(" + txt + ")");
+var obj = JSON.parse(txt);
+
+//document.getElementById("fname").innerHTML=obj.employees[1].firstName; 
+//document.getElementById("lname").innerHTML=obj.employees[1].lastName; 
+document.getElementById("fname").innerHTML=obj[1].firstName; 
+document.getElementById("lname").innerHTML=obj[1].lastName; 
+</script>
+</body>
+</html>

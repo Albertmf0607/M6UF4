@@ -1,0 +1,62 @@
+<html>
+<body>
+<div id="result"> </div>
+
+<script type="text/javascript">
+
+function peticionAjax(url, metodo, funcion, param) {
+    var peticion_http = null;
+    if (window.XMLHttpRequest) {
+        peticion_http = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if (peticion_http) {
+        peticion_http.onreadystatechange = funcion;
+        peticion_http.open(metodo, url, true);
+        peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        peticion_http.send((param) ? param : null);
+    }
+}
+
+function mostraContent(){
+ if (this.readyState==4){
+  if (this.status==200){
+//   var jsondata=eval("("+this.responseText+")"); //retrieve result as an JavaScript object
+   var jsondata= JSON.parse(this.responseText); //retrieve result as an JavaScript object
+   var rssentries=jsondata.items
+   var output= "<h1>" + jsondata.title + "</h1></br>";
+   output += "<ul>";
+   for (var i=0; i<rssentries.length; i++){
+    output+='<li>'
+    output+='<a href="'+rssentries[i].link+'">'
+    output+=rssentries[i].title+'</a>'
+    output+='</li>'
+   }
+   output+='</ul>'
+   document.getElementById("result").innerHTML=output
+/*
+   output = "<ul>";
+   for (i  in rssentries) {
+    output+='<li>'
+    output+='<a href="'+rssentries[i].link+'">'
+    output+=rssentries[i].title+'</a>'
+    output+='</li>'
+   }
+   output+='</ul>'
+   document.getElementById("result").innerHTML+=output
+*/
+  }
+  else{
+   alert("An error has occured making the request")
+  }
+
+}
+}
+
+peticionAjax ("prova.json", "POST", mostraContent);
+
+
+</script>
+</body>
+</html>
